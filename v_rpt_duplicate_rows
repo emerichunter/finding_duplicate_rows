@@ -26,7 +26,7 @@ WHERE kc.constraint_name IS NULL
 GROUP BY c.table_schema, c.table_name
 ORDER BY c.table_schema, c.table_name
 )
-SELECT FORMAT ('SELECT  %I   as duplicate_rows, count(%I), array_agg(%I) as pks 
+SELECT FORMAT ('SELECT  %I   , count(%I)  as n_duplicate_rows, array_agg(%I) as pks 
 FROM %I.%I 
 GROUP BY %I
 HAVING count(%I) >1;', col.str_col, col.arr_col[1], pks.column_name, col.table_schema, col.table_name, col.str_col, col.arr_col[1]) as sql_statement
