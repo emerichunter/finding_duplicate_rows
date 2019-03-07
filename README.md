@@ -8,7 +8,7 @@ Much like maintenance_schema, this view allows to find exactly how many occurenc
 
 This is how to use it.
 ~~~~
-postgres@dv400bd04g7018:~$ psql -t -d postgres -c "select * from rpt_duplicate_rows" | sed 's/"//g' | sed 's/+//g' | psql
+postgres@dv400bd04g7018:~$ psql -t -d postgres -c "select * from rpt_duplicate_rows" | sed 's/"\|+//g' | psql -d postgres
  duplicate_rows | count |  pks
 ----------------+-------+-------
  toto           |     2 | {1,2}
