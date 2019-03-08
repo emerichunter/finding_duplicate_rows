@@ -51,7 +51,7 @@ except:
     print "Could not collect data"
 
 rows = cur.fetchall()
-print "Query to be played: \n"
+#print "Query to be played: \n"
 for row in rows:
     print "\n"
     print "Relation name: %s " %  (row[1])
@@ -67,6 +67,7 @@ for row in rows:
         print "Could not replay queries"
 
     results = cur2.fetchall()
-    print "Duplicate content | number or duplicates(L) | Name of keys"
+    print "Duplicate content | number or duplicates(L) | Values of keys"
     for result in results:
         print result
+
