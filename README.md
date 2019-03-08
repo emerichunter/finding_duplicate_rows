@@ -3,6 +3,7 @@
 ## finding_duplicate_rows
 
 [WIP] simple view to find all duplicate rows from PK
+python script to give more readable results 
 
 Much like maintenance_schema, this view allows to find exactly how many occurences and which tuples are duplicates. This only takes into account primary keys as entry. Need to expand to UNIQUE constraints as well. 
 
@@ -52,5 +53,30 @@ postgres=# select * from dummy3;
 
 ~~~~
 
-**TODO** :
-- Find a better way than `sed` to rid the queries of double quotes to perform `\gexec``
+Better now, use pg_deduplicator.py 
+
+~~~~
+postgres@dv400bd04g7018:~$ python pg_deduplicator.py
+
+Relation name: public.dummy
+Duplicate content | number or duplicates(L) | Name of keys
+('toto', 2L, [1, 2])
+
+
+Relation name: public.dummy2
+Duplicate content | number or duplicates(L) | Name of keys
+
+
+Relation name: public.dummy3
+Duplicate content | number or duplicates(L) | Name of keys
+('toto2', 12, 2L, [2, 5])
+
+
+Relation name: public.dummy4
+Duplicate content | number or duplicates(L) | Name of keys
+(14, 'toto', 2L, [3, 4])
+
+
+Relation name: public.dummy5
+Duplicate content | number or duplicates(L) | Name of keys
+~~~~
