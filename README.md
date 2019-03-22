@@ -80,3 +80,7 @@ Duplicate content | number or duplicates(L) | Name of keys
 Relation name: public.dummy5
 Duplicate content | number or duplicates(L) | Name of keys
 ~~~~
+
+
+## TODO
+- Add multiple PKs and unique Keys
