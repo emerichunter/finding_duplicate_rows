@@ -82,5 +82,13 @@ Duplicate content | number or duplicates(L) | Name of keys
 ~~~~
 
 
-## TODO
+# **TODO**:
+====================
+
+Use ctid column to keep either :
+- first/oldest/former
+- last/newest/latter
 - Add multiple PKs and unique Keys
+- Delete step
+- variables for connection
+- options : --report-onscreen (default), --report-html, --keep-oldest, --keep-newest
