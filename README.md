@@ -92,3 +92,32 @@ Use ctid column to keep either :
 - Delete step
 - variables for connection
 - options : --report-onscreen (default), --report-html, --keep-oldest, --keep-newest
+
+
+~~~~sql
+-- from wiki 
+DELETE FROM tablename
+WHERE id IN (
+    SELECT
+        id
+    FROM (
+        SELECT
+            id,
+            row_number() OVER w as rnum
+        FROM tablename
+        WINDOW w AS (
+            PARTITION BY column1, column2, column3
+            ORDER BY id
+        )
+
+    ) t
+WHERE t.rnum > 1);
+-- use ID or timestamptz
+~~~~
+
+IDEAS : 
+https://www.dataqualityapps.com/know-how/121-postgresql-deduping-data.html
+
+Best so far :
+https://www.alibabacloud.com/blog/postgresql-data-deduplication-methods_596032
+
